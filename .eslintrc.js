@@ -19,7 +19,8 @@ module.exports = {
     quotes: 'off',
     // 'consistent-return': 'off',
     'no-alert': 'off',
+    camelcase: 'off',
     'no-unused-expressions': ["error", { allowTernary: true }],
-    'no-unused-vars': ['error', { argsIgnorePattern: '_', destructuredArrayIgnorePattern: '^_' }],
+    'no-unused-vars': ['error', { argsIgnorePattern: '_|(knex)', destructuredArrayIgnorePattern: '^_' }],
   },
 };

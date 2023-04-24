@@ -20,6 +20,7 @@ module.exports = {
     // 'consistent-return': 'off',
     'no-alert': 'off',
     camelcase: 'off',
+    'consistent-return': 'off',
     'no-unused-expressions': ["error", { allowTernary: true }],
     'no-unused-vars': ['error', { argsIgnorePattern: '_|(knex)', destructuredArrayIgnorePattern: '^_' }],
   },

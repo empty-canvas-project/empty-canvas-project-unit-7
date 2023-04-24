@@ -1,5 +1,5 @@
 {
-  "name": "auth-example-bcyrpt-web-token",
+  "name": "auth-example-bcyrpt-sessions",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,7 +15,6 @@
     "seed": "knex seed:run",
     "seed:make": "knex seed:make",
     "play:bcrypt": "nodemon ./playground-examples/bcrypt-example.js",
-    "play:token": "nodemon ./playground-examples/token-example.js",
     "lint": "eslint . --fix"
   },
   "keywords": [],

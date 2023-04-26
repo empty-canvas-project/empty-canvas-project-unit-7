@@ -1,3 +1,4 @@
+// Fetch Helpers
 const handleFetch = async (url, options) => {
   try {
     const response = await fetch(url, options);
@@ -18,11 +19,7 @@ const getFetchOptions = (body, method = 'POST') => ({
   body: JSON.stringify(body),
 });
 
-const fetchLoggedInUser = async () => {
-  const [response, _err] = await handleFetch('/api/me', { credentials: 'include' });
-  return response;
-};
-
+// CREATE USER
 const signupAndLoginHandler = async (url, form) => {
   const formData = new FormData(form);
   const options = getFetchOptions(Object.fromEntries(formData.entries()));
@@ -34,12 +31,13 @@ const signupAndLoginHandler = async (url, form) => {
   window.location.assign('/user.html');
 };
 
-const logOutHandler = async () => {
-  const [_response, err] = await handleFetch('/api/users/logout', { method: 'DELETE' });
-  if (err) return alert('Something went wrong');
-  window.location.assign('/');
+// READ USER
+const fetchLoggedInUser = async () => {
+  const [response, _err] = await handleFetch('/api/me', { credentials: 'include' });
+  return response;
 };
 
+// UPDATE USER
 const updateUsernameHandler = async (form) => {
   const formData = new FormData(form);
   const username = formData.get('username');
@@ -52,6 +50,14 @@ const updateUsernameHandler = async (form) => {
   return [response, err];
 };
 
+// DELETE USER
+const logOutHandler = async () => {
+  const [_response, err] = await handleFetch('/api/users/logout', { method: 'DELETE' });
+  if (err) return alert('Something went wrong');
+  window.location.assign('/');
+};
+
+// Nav Helper
 const setNav = (hasLoggedInUser) => {
   const loggedOutNavHtml = `<ul>
     <li><a href="/">Home</a></li>

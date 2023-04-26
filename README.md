@@ -13,6 +13,9 @@ Here is how we can do Auth for our projects.
   - [Auth failures](#auth-failures)
 - [What kind of apps can we build with a Client like this?](#what-kind-of-apps-can-we-build-with-a-client-like-this)
   - [Be wary of errors](#be-wary-of-errors)
+- [Understanding The Code](#understanding-the-code)
+  - [Client Side](#client-side)
+  - [Server Side](#server-side)
 
 
 # Authentication vs Authorization
@@ -71,3 +74,49 @@ The apps this would be suited for are ones where a user has info and children en
 
 ## Be wary of errors
 Given time constraints, this project is handling barely any errors. The model is very brittle right now, the server and sql errors should be handled like we've done before. We're also only handling the most basic of flows and errors on the client. Things like handling attempted recreations of users who already exist or even wrong passwords can be handled much more delicately.
+
+## Understanding the Code
+
+# Auth
+
+**Authentication** and **authorization** are two different concepts related to security and access control. 
+* **Authentication** is the process of verifying the identity of a user or entity
+* **Authorization** is the process of determining what resources or actions a user or entity is allowed to access or perform.
+
+### Client Side
+
+* 4 pages
+  * `/create` - register an account
+  * `/` - see primary resources (posts, pictures, etc...)
+  * `/user` - user profile with log out button
+  * `login` - log in
+* Key fetching methods:
+  <details><summary>Create - <code>signupAndLoginHandle</code></summary>
+
+    * sends a `POST /api/users` request when creating a new user on the `/create` page along with a `username` and `password` from the form.
+    * sends a `POST /api/users/login` request when logging in on the `/login` page along with a `username` and `password` from the form.
+
+  </details>
+
+  <details><summary>Read - <code>fetchLoggedInUser</code></summary>
+
+    * sends a `GET /api/me` request which returns a `user` if signed in (the cookie sent to the server has a session id), or `null` if not.
+    * sent when hitting the `/` page. If a user is signed in, show the <kbd>Profile</kbd> button in the nav. If not, show the <kbd>Login</kbd> and <kbd>Sign Up</kbd> buttons
+    * sent when hitting the `/create` and `/login` pages. If a user is signed in, redirects to `/user`.
+    * sent when hitting the `/users` page. If a user is NOT signed in, redirects to `/login`. If a user IS signed it, it uses the returned `user` object to store the `user.id` on the <kbd>Update Username</kbd> form as a `data-user-id` attribute.
+
+  </details>
+  <details><summary>Update - <code>updateUsernameHandler</code></summary>
+
+    * sends a `PATCH /api/users/:userId` request along with the updated username.
+    * sent when a user presses the <kbd>Update Username</kbd> button from `/user`.
+  </details>
+  <details><summary>Delete - <code>logoutHandler</code></summary>
+
+    * sends a `DELETE /api/users/logout` request which only returns an error if something went wrong.
+    * sent when a user presses the <kbd>Log Out</kbd> button from `/user`.
+  </details>
+    
+
+### Server Side
+

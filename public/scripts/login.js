@@ -1,14 +1,13 @@
-const handleSubmit = async (event) => {
-  event.preventDefault();
-  signupAndLoginHandler('/api/users/login', event.target);
-};
+const main = async () => {
+  const user = await window.fetchLoggedInUser();
+  if (user) return window.location.assign('/user.html');
 
-const main = () => {
-  if (isUserLoggedIn()) return window.location.assign('/user.html');
-  setNav();
-
+  window.setNav();
   document.querySelector('#create-form')
-    .addEventListener('submit', handleSubmit);
+    .addEventListener('submit', async (event) => {
+      event.preventDefault();
+      window.signupAndLoginHandler('/api/users/login', event.target);
+    });
 };
 
 main();

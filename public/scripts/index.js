@@ -1,9 +1,10 @@
 const main = async () => {
-  setNav();
+  const user = await window.fetchLoggedInUser();
+  window.setNav(!!user);
 
-  const secret = await fetchHandler('/api/logged-in-secret');
+  const [secret, _err] = await window.handleFetch('/api/logged-in-secret');
+  console.log('secret, _err:', secret, _err);
   if (secret) {
-    console.log('secret:', secret);
     document.querySelector('#secret-message').textContent = secret.msg;
   }
 };

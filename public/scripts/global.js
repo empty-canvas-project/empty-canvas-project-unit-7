@@ -1,51 +1,40 @@
-const saveUserToLocalStorage = (user) => {
+const handleFetch = async (url, options) => {
   try {
-    console.log('hi:', );
-    return localStorage.setItem('user', JSON.stringify(user));
+    const response = await fetch(url, options);
+    const { status, statusText, ok } = response;
+    if (!ok) return [null, { status, statusText }];
+
+    const content = (status === 204) || await response.json();
+    return [content, null];
   } catch (error) {
-    return null;
+    return [null, error];
   }
 };
 
-const getUserFromLocalStorage = () => JSON.parse(localStorage.getItem('user'));
-
-const deleteUser = () => localStorage.removeItem('user');
-
-const isUserLoggedIn = () => !!getUserFromLocalStorage();
-
-const isCurrentlyLoggedInUser = (userId) => {
-  const userFromLocalStorage = getUserFromLocalStorage();
-  return userFromLocalStorage && userFromLocalStorage.id === userId;
-};
-
-const fetchHandler = async (url, options) => {
-  const response = await fetch(url, options);
-  if (!response.ok) return null;
-  return (response.status === 204) || response.json();
-};
-
-const getPostOptions = (body) => ({
-  method: 'POST',
-  credentials: 'include',
-  headers: {
-    'Content-Type': 'application/json',
-  },
+const getFetchOptions = (body, method = 'POST') => ({
+  method,
+  credentials: 'include', // IMPORTANT, this tells fetch to include cookies
+  headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify(body),
 });
 
+const fetchLoggedInUser = async () => {
+  const [response, _err] = await handleFetch('/api/me', { credentials: 'include' });
+  return response;
+};
+
 const signupAndLoginHandler = async (url, form) => {
   const formData = new FormData(form);
-  const options = getPostOptions(Object.fromEntries(formData.entries()));
-  const response = await fetchHandler(url, options);
-  if (!response) {
+  const options = getFetchOptions(Object.fromEntries(formData.entries()));
+  const [_response, err] = await handleFetch(url, options);
+  if (err) {
     form.reset();
     return alert('Something went wrong');
   }
-  saveUserToLocalStorage(response);
   window.location.assign('/user.html');
 };
 
-const setNav = () => {
+const setNav = (hasLoggedInUser) => {
   const loggedOutNavHtml = `<ul>
     <li><a href="/">Home</a></li>
     <li><a href="./create.html">Sign Up</a></li>
@@ -57,6 +46,16 @@ const setNav = () => {
     <li><a href="./user.html">Profile</a></li>
   </ul>`;
 
-  const navHtml = isUserLoggedIn() ? loggedInNavHtml : loggedOutNavHtml;
+  const navHtml = hasLoggedInUser ? loggedInNavHtml : loggedOutNavHtml;
   document.querySelector('nav').innerHTML = navHtml;
 };
+
+// This is wonky. Once you learn about bundlers we won't have to
+// explicitly create globals. We just lack the tools right now.
+Object.assign(window, {
+  handleFetch,
+  getFetchOptions,
+  fetchLoggedInUser,
+  signupAndLoginHandler,
+  setNav,
+});

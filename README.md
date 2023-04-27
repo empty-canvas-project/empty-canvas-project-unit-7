@@ -13,7 +13,17 @@ Here is how we can do Auth for our projects.
   - [Auth failures](#auth-failures)
 - [What kind of apps can we build with a Client like this?](#what-kind-of-apps-can-we-build-with-a-client-like-this)
   - [Be wary of errors](#be-wary-of-errors)
+- [Understanding The Code](#understanding-the-code)
+  - [Client Side](#client-side)
+  - [Server Side](#server-side)
 
+# Setup
+
+* Fork this template repo
+* Copy the `template.env` and name it `.env`
+* Create an `auth_example` database (or update `.env` to whatever database you are using)
+* Double check that the `.env` variables are all correct (username, password, database name)
+* `npm run kickstart` (`npm run dev` or `npm start` afterwards)
 
 # Authentication vs Authorization
 Remember, `authenticated` means "We have confirmed this person is who they say they are" and `authorized` means "This person is who they say they are AND they are allowed to be here." So if we just want a user to be logged into the site to show content, we just check if they're `authenticated`. However, if they wanted to update their profile info, we'd need to make sure they were `authorized` to do that (e.g. the profile they're updating is their own).
@@ -32,7 +42,13 @@ Since our entire application lives on one server (our frontend is just a bunch o
 You may also see tutorials that use JWTs saved in `localStorage`, but that's super insecure and is getting increasingly frowned upon. Sessions also have security issues we aren't dealing with, but nowhere near as blatant.
 
 ### Cookie Session
-While more limited in size (4kb is the absolute max amount of info), [cookie sessions](https://expressjs.com/en/resources/middleware/cookie-session.html) are much easier to understand. When a request comes in for signup/login, we create a cookie. In that cookie we put the user's id. Now, that cookie lives with every request made by that user. Unlike traditional sessions, there is no external store, the session data *is* the cookie. To log out, just remove the cookie via setting it to `null`.
+While more limited in size (4kb is the absolute max amount of info), [cookie sessions](https://expressjs.com/en/resources/middleware/cookie-session.html) are much easier to understand. 
+1. When a request comes in for signup/login, the server creates a cookie (the `handle-cookie-sessions` middleware does this for us). 
+2. The model will store the user data in the database (or look it up for `/login`) and return back the user with it's unique `user.id`
+3. When we get the `User` back from the model, we store the `user.id` in that cookie. 
+4. Now, that cookie lives with every request made by that user (`req.session`) and the client can check if it is logged in using the `/api/me` endpoint (see below).
+
+Unlike traditional sessions, there is no external store, the session data *is* the cookie. To log out, just remove the cookie via setting it to `null`.
 
 In this example the cookie's lifespan isn't specified, which means it defaults to `Session`. A length of `Session` means that as long as the user's browser stays open (That's the browser, not the tab) the cookie will stick around. For now this is what we want, because we don't want to worry too much about re-auth flow at some arbitrary time in the middle of the user doing something.
 
@@ -56,7 +72,7 @@ Without a proper front end router or backend template system, we're a little lim
 ## /api/me
 In order to keep source of truth simple, we're going to track who is logged in with that `GET /api/me` convention. Each time a page is loaded, we quickly hit `GET /api/me`. If there is a logged in user, we'll see that in the json. Saving the user info into another global store like localStorage has network advantages, but also some rather harsh drawbacks. Given that it has a different lifespan than our cookies (and can also be modified with client side JS), this was such a shaky source of truth, we ultimately reconsidered using that technique. Also, those network advantages go away once we have a proper front end router and we aren't constantly reloading our app. So let's learn best practices now!
 
-The reason this route is used instead of `GET /api/users/:id` is two fold. One, we don't know the users id on load, so how could we hit it? And two, read REST routes are supposed to be `idempotent` (eye-dem-PO-tent) which means "don't change." `GET /api/me` will change depending on the auth cookie. So this little example app does have `GET /api/users` and `GET /api/users/:id` because `GET /api/me` is not a replacement for them. They just aren't used in the client yet. But your projects might in the future!
+The reason this route is used instead of `GET /api/users/:id` is two fold. One, we don't know the users id on load, so how could we hit it? And two, read REST routes are supposed to be **idempotent** (eye-dem-PO-tent) which means "don't change." `GET /api/me` will change depending on the auth cookie. So this little example app does have `GET /api/users` and `GET /api/users/:id` because `GET /api/me` is not a replacement for them. They just aren't used in the client yet. But your projects might in the future!
 
 ## Auth failures
 So even though our cookies last as long as the user has the browser open, it's still possible that the cookies get deleted/expired somehow *while* the user is working. For one thing, they could clear their cache. So in this event we have 2 options:

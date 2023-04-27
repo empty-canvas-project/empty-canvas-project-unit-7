@@ -35,7 +35,13 @@ Since our entire application lives on one server (our frontend is just a bunch o
 You may also see tutorials that use JWTs saved in `localStorage`, but that's super insecure and is getting increasingly frowned upon. Sessions also have security issues we aren't dealing with, but nowhere near as blatant.
 
 ### Cookie Session
-While more limited in size (4kb is the absolute max amount of info), [cookie sessions](https://expressjs.com/en/resources/middleware/cookie-session.html) are much easier to understand. When a request comes in for signup/login, we create a cookie. In that cookie we put the user's id. Now, that cookie lives with every request made by that user. Unlike traditional sessions, there is no external store, the session data *is* the cookie. To log out, just remove the cookie via setting it to `null`.
+While more limited in size (4kb is the absolute max amount of info), [cookie sessions](https://expressjs.com/en/resources/middleware/cookie-session.html) are much easier to understand. 
+1. When a request comes in for signup/login, the server creates a cookie (the `handle-cookie-sessions` middleware does this for us). 
+2. The model will store the user data in the database (or look it up for `/login`) and return back the user with it's unique `user.id`
+3. When we get the `User` back from the model, we store the `user.id` in that cookie. 
+4. Now, that cookie lives with every request made by that user (`req.session`) and the client can check if it is logged in using the `/api/me` endpoint (see below).
+
+Unlike traditional sessions, there is no external store, the session data *is* the cookie. To log out, just remove the cookie via setting it to `null`.
 
 In this example the cookie's lifespan isn't specified, which means it defaults to `Session`. A length of `Session` means that as long as the user's browser stays open (That's the browser, not the tab) the cookie will stick around. For now this is what we want, because we don't want to worry too much about re-auth flow at some arbitrary time in the middle of the user doing something.
 
@@ -59,7 +65,7 @@ Without a proper front end router or backend template system, we're a little lim
 ## /api/me
 In order to keep source of truth simple, we're going to track who is logged in with that `GET /api/me` convention. Each time a page is loaded, we quickly hit `GET /api/me`. If there is a logged in user, we'll see that in the json. Saving the user info into another global store like localStorage has network advantages, but also some rather harsh drawbacks. Given that it has a different lifespan than our cookies (and can also be modified with client side JS), this was such a shaky source of truth, we ultimately reconsidered using that technique. Also, those network advantages go away once we have a proper front end router and we aren't constantly reloading our app. So let's learn best practices now!
 
-The reason this route is used instead of `GET /api/users/:id` is two fold. One, we don't know the users id on load, so how could we hit it? And two, read REST routes are supposed to be `idempotent` (eye-dem-PO-tent) which means "don't change." `GET /api/me` will change depending on the auth cookie. So this little example app does have `GET /api/users` and `GET /api/users/:id` because `GET /api/me` is not a replacement for them. They just aren't used in the client yet. But your projects might in the future!
+The reason this route is used instead of `GET /api/users/:id` is two fold. One, we don't know the users id on load, so how could we hit it? And two, read REST routes are supposed to be **idempotent** (eye-dem-PO-tent) which means "don't change." `GET /api/me` will change depending on the auth cookie. So this little example app does have `GET /api/users` and `GET /api/users/:id` because `GET /api/me` is not a replacement for them. They just aren't used in the client yet. But your projects might in the future!
 
 ## Auth failures
 So even though our cookies last as long as the user has the browser open, it's still possible that the cookies get deleted/expired somehow *while* the user is working. For one thing, they could clear their cache. So in this event we have 2 options:
@@ -74,49 +80,3 @@ The apps this would be suited for are ones where a user has info and children en
 
 ## Be wary of errors
 Given time constraints, this project is handling barely any errors. The model is very brittle right now, the server and sql errors should be handled like we've done before. We're also only handling the most basic of flows and errors on the client. Things like handling attempted recreations of users who already exist or even wrong passwords can be handled much more delicately.
-
-## Understanding the Code
-
-# Auth
-
-**Authentication** and **authorization** are two different concepts related to security and access control. 
-* **Authentication** is the process of verifying the identity of a user or entity
-* **Authorization** is the process of determining what resources or actions a user or entity is allowed to access or perform.
-
-### Client Side
-
-* 4 pages
-  * `/create` - register an account
-  * `/` - see primary resources (posts, pictures, etc...)
-  * `/user` - user profile with log out button
-  * `login` - log in
-* Key fetching methods:
-  <details><summary>Create - <code>signupAndLoginHandle</code></summary>
-
-    * sends a `POST /api/users` request when creating a new user on the `/create` page along with a `username` and `password` from the form.
-    * sends a `POST /api/users/login` request when logging in on the `/login` page along with a `username` and `password` from the form.
-
-  </details>
-
-  <details><summary>Read - <code>fetchLoggedInUser</code></summary>
-
-    * sends a `GET /api/me` request which returns a `user` if signed in (the cookie sent to the server has a session id), or `null` if not.
-    * sent when hitting the `/` page. If a user is signed in, show the <kbd>Profile</kbd> button in the nav. If not, show the <kbd>Login</kbd> and <kbd>Sign Up</kbd> buttons
-    * sent when hitting the `/create` and `/login` pages. If a user is signed in, redirects to `/user`.
-    * sent when hitting the `/users` page. If a user is NOT signed in, redirects to `/login`. If a user IS signed it, it uses the returned `user` object to store the `user.id` on the <kbd>Update Username</kbd> form as a `data-user-id` attribute.
-
-  </details>
-  <details><summary>Update - <code>updateUsernameHandler</code></summary>
-
-    * sends a `PATCH /api/users/:userId` request along with the updated username.
-    * sent when a user presses the <kbd>Update Username</kbd> button from `/user`.
-  </details>
-  <details><summary>Delete - <code>logoutHandler</code></summary>
-
-    * sends a `DELETE /api/users/logout` request which only returns an error if something went wrong.
-    * sent when a user presses the <kbd>Log Out</kbd> button from `/user`.
-  </details>
-    
-
-### Server Side
-

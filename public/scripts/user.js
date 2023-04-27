@@ -1,3 +1,11 @@
+/* eslint-disable import/extensions */
+import {
+  fetchLoggedInUser,
+  logOutHandler,
+  updateUsernameHandler,
+  setNav,
+} from './global.js';
+
 const isAuthError = (err) => (err.status === 401 || err.status === 403);
 const redirectToLogin = () => window.location.assign('/login.html');
 const renderUsername = (username) => {
@@ -5,7 +13,7 @@ const renderUsername = (username) => {
 };
 
 const main = async () => {
-  const user = await window.fetchLoggedInUser();
+  const user = await fetchLoggedInUser();
   if (!user) return redirectToLogin();
 
   const logoutForm = document.querySelector('#logout-form');
@@ -13,12 +21,12 @@ const main = async () => {
 
   logoutForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    window.logOutHandler();
+    logOutHandler();
   });
 
   updateUsernameForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const [response, err] = await window.updateUsernameHandler(event.target);
+    const [response, err] = await updateUsernameHandler(event.target);
 
     if (err) return isAuthError(err) ? redirectToLogin() : alert('Something went wrong');
     renderUsername(response.username);
@@ -28,7 +36,7 @@ const main = async () => {
 
   updateUsernameForm.dataset.userId = user.id;
 
-  window.setNav(!!user);
+  setNav(!!user);
   renderUsername(user.username);
 };
 

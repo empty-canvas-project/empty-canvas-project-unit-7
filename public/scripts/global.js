@@ -85,3 +85,13 @@ Object.assign(window, {
   logOutHandler,
   updateUsernameHandler,
 });
+
+export {
+  handleFetch,
+  getFetchOptions,
+  fetchLoggedInUser,
+  signupAndLoginHandler,
+  setNav,
+  logOutHandler,
+  updateUsernameHandler,
+};

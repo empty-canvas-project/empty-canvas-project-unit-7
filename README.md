@@ -20,8 +20,8 @@ Here is how we can do Auth for our projects.
 # Setup
 
 * Fork this template repo
-* Copy the `template.env` and name it `.env`
-* Create an `auth_example` database (or update `.env` to whatever database you are using)
+* Copy the `.env.template` and name it `.env`
+* Create an `auth_example` database (or update your new `.env` to whatever database you are using)
 * Double check that the `.env` variables are all correct (username, password, database name)
 * `npm run kickstart` (`npm run dev` or `npm start` afterwards)
 

@@ -17,6 +17,13 @@ Here is how we can do Auth for our projects.
   - [Client Side](#client-side)
   - [Server Side](#server-side)
 
+# Setup
+
+* Fork this template repo
+* Copy the `template.env` and name it `.env`
+* Create an `auth_example` database (or update `.env` to whatever database you are using)
+* Double check that the `.env` variables are all correct (username, password, database name)
+* `npm run kickstart` (`npm run dev` or `npm start` afterwards)
 
 # Authentication vs Authorization
 Remember, `authenticated` means "We have confirmed this person is who they say they are" and `authorized` means "This person is who they say they are AND they are allowed to be here." So if we just want a user to be logged into the site to show content, we just check if they're `authenticated`. However, if they wanted to update their profile info, we'd need to make sure they were `authorized` to do that (e.g. the profile they're updating is their own).

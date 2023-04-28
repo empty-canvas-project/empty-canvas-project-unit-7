@@ -1,9 +1,13 @@
 const knex = require('../knex');
-const { hashPassword, isValidPassword } = require('../../utils/auth-utils');
+const authUtils = require('../../utils/auth-utils');
 
 class User {
   #passwordHash = null;
 
+  // This constructor is used ONLY by the model
+  // to provide the controller with instances that
+  // have access to the instance methods isValidPassword
+  // and update.
   constructor({ id, username, password_hash }) {
     this.id = id;
     this.username = username;
@@ -45,7 +49,7 @@ class User {
 
   static async create(username, password) {
     try {
-      const passwordHash = await hashPassword(password);
+      const passwordHash = await authUtils.hashPassword(password);
 
       const query = `INSERT INTO users (username, password_hash)
         VALUES (?, ?) RETURNING *`;
@@ -80,7 +84,7 @@ class User {
   };
 
   isValidPassword = async (password) => (
-    isValidPassword(password, this.#passwordHash)
+    authUtils.isValidPassword(password, this.#passwordHash)
   );
 }
 

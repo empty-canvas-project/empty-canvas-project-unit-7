@@ -4,11 +4,12 @@
  */
 exports.up = function (knex) {
   return knex.schema.createTable("users", (table) => {
-    table.increments("user_id").primary();
-    table.string("name").notNullable();
-    table.string('password_hash').notNullable();
-    table.string("username").notNullable();
-    table.string("email").notNullable();
+    table.increments();
+    table.string("username").notNullable().unique();
+    table.string("password_hash").notNullable();
+    table.timestamps(true, true);
+    // table.string("name").notNullable();
+    // table.string("email").notNullable();
   });
 };
 

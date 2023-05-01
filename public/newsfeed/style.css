@@ -38,7 +38,7 @@ body {
 }
 
 
-#head {
+/* #head {
     display: flex;
     color: aliceblue;
     position: sticky;
@@ -47,7 +47,7 @@ body {
     background-color: #94D2BD;
     padding: 0%;
     margin: 0%;
-}
+} */
 
 #title {
     display: flex;

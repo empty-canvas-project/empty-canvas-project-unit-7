@@ -112,6 +112,19 @@ background-color: #E9D8A6;
 padding: 2em;
 }
 
+.field {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    align-items: center;
+    padding: 2em;
+}
+
+.control {
+    text-align: center;
+    justify-content: center;
+}
+
 
 #button-section {
     display: flex;
@@ -128,6 +141,7 @@ button {
     font-weight: 400;
     color: black;
 }
+
 
 .footer {
     display: flex;

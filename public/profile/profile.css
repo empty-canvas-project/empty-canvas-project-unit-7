@@ -104,6 +104,20 @@ background-color: #E9D8A6;
 padding: 2em;
 }
 
+.field {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    align-items: center;
+    padding: 2em;
+}
+
+.control {
+    text-align: center;
+    justify-content: center;
+}
+
+
 .footer {
     margin-top: 5em;
     margin-bottom: 1.5em;

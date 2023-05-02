@@ -1,9 +1,9 @@
 const knex = require("../knex");
 
 class Posts {
-  constructor({ id, users_id, content, title }) {
+  constructor({ id, user_id, content, title }) {
     this.id = id;
-    this.users_id = users_id;
+    this.users_id = user_id;
     this.content = content;
     this.title = title;
   }

@@ -1,12 +1,14 @@
 body {
   font-family:Arial, Helvetica, sans-serif;
   display: flex;
+  justify-content: center;
+  border-color: black;
+  border-style: dotted;
+  margin: 3em;
 }
 
 nav {
   height: 2rem;
-  justify-content: center;
-  align-items: center;
 }
 
 nav ul {
@@ -25,4 +27,31 @@ nav ul li:first-child {
 #secret-container {
   text-align: center;
   border: black 1px dashed;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+#log-in {
+  justify-content: center;
+  background-color: #94D2BD;
+  border-radius: 2em;
+  text-align: center;
+  border-color: black;
+  border-style: dotted;
+  padding: 0.4em;
+  margin-top: 2em;
+}
+
+#create-form {
+  margin: 3em;
+  background-color: #94D2BD;
+  padding: 1em;
+  margin-bottom: 3em;
+}
+
+h3 {
+  text-align: center;
 }

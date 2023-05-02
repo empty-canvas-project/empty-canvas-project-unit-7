@@ -6,21 +6,31 @@ body {
 }
 
 #logo {
-    height: 6em;
-    width: 6em;
+    height: 5.5em;
+    width: 5.5em;
 }
 
-.navbar-brand, .navbar {
+.navbar {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    background-color:#E9D8A6;
+    align-items: center;
+    height: 7em;
+}
+
+.navbar-brand {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0A9396;
+    align-items: center;
+    margin: 1em;
 }
 
 .navbar-menu {
     margin-top: 2em;
     margin-bottom: 2em;
     margin-left: 3em;
-    margin-right: 3em;
+    margin-right: 2em;
 }
 
 .nav-button {
@@ -36,19 +46,6 @@ body {
 }
 
 
-
-#head {
-    display: flex;
-    color: aliceblue;
-    position: sticky;
-    flex-direction: row;
-    font-size: large;
-    background-color: #94D2BD;
-    padding: 0%;
-    margin: 0%;
-}
-
-
 #title {
     display: flex;
     align-items: center;
@@ -56,6 +53,14 @@ body {
     flex-direction: column;
     text-align: center;
     font-size:x-large;
+    border-style: groove;
+    margin: 1em;
+    background-color:#0A9396;
+}
+
+h2, h4 {
+    padding: 0em;
+    margin: 0.5em;
 }
 
 main {

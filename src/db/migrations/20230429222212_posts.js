@@ -5,11 +5,11 @@
  */
 exports.up = function (knex) {
     return knex.schema.createTable("posts", (table) => {
-      table.increments("post_id").primary();
-      table.integer("user_id").notNullable();
-      table.string("caption").notNullable();
-      table.integer("likes").notNullable();
-      table.string("songname").notNullable();
+      table.increments("id").primary();
+      table.integer("users_id").notNullable();
+      table.string("content").notNullable();
+      table.string("title").notNullable();
+      table.timestamps(true, true);
     });
   };
   

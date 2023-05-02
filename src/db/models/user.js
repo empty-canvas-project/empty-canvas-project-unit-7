@@ -8,10 +8,11 @@ class User {
   // to provide the controller with instances that
   // have access to the instance methods isValidPassword
   // and update.
-  constructor({ id, username, password_hash }) {
+  constructor( id, username, password_hash ) {
     this.id = id;
     this.username = username;
     this.#passwordHash = password_hash;
+    
   }
 
   static async list() {

@@ -60,7 +60,7 @@ body {
     font-size:x-large;
     border-style: groove;
     border-color: black;
-    margin: 1em;
+    margin: 0.7em;
     background-color: #0A9396;
 }
 
@@ -118,16 +118,23 @@ padding: 2em;
 }
 
 .field {
-    display: flex;
-    justify-content: center;
-    width: 200px;
+    justify-content: space-between;
     align-items: center;
-    padding: 2em;
+    padding: 3em;
+}
+
+.label {
+    background-color: #0A9396;
+    opacity: 0.8;
+    padding: 1em;
+    border-radius: 1.4em;
+    font-size: medium;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .control {
-    text-align: center;
     justify-content: center;
+    padding: 2em;
 }
 
 

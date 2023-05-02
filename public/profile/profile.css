@@ -15,7 +15,9 @@ body {
     justify-content: space-between;
     background-color:#E9D8A6;
     align-items: center;
-    height: 7em;
+    height: 6em;
+    border-style: groove;
+    border-color: black;
 }
 
 .navbar-brand {
@@ -23,7 +25,9 @@ body {
     justify-content: space-between;
     background-color: #0A9396;
     align-items: center;
-    margin: 1em;
+    margin: 0.2em;
+    border-style: groove;
+    border-color: black;
 }
 
 .navbar-menu {
@@ -54,6 +58,7 @@ body {
     text-align: center;
     font-size:x-large;
     border-style: groove;
+    border-color: black;
     margin: 1em;
     background-color:#0A9396;
 }

@@ -22,10 +22,12 @@ class Posts {
   static async find(id) {
     try {
       const query = "SELECT * FROM posts WHERE id = ?";
-      const {
-        rows: [posts],
-      } = await knex.raw(query, [id]);
+
+      const { rows: [posts] } = await knex.raw(query, [id]);
+
+
       return posts ? new Posts(posts) : null;
+
     } catch (err) {
       console.error(err);
       return null;
@@ -39,8 +41,10 @@ class Posts {
       INSERT INTO posts (content, title, user_id)
       VALUES (?, ?, ?) 
       RETURNING *`;
+
       const dbRes = await knex.raw(query, [content, title, userId]);
       return dbRes.rows[0];
+
     } catch (err) {
       console.error(err);
       return null;

@@ -32,14 +32,32 @@ class Posts {
     }
   }
 
-  static async create(content, title) {
+  static async create(postData) {
     try {
-      const query = `INSERT INTO posts (content, title)
-        VALUES (?, ?) RETURNING *`;
-      const {
-        rows: [posts],
-      } = await knex.raw(query, [content, title]);
-      return new Posts(posts);
+      const { content, userId, title } = postData;
+      const query = `
+      INSERT INTO posts (content, title, user_id)
+      VALUES (?, ?, ?) 
+      RETURNING *`;
+      const dbRes = await knex.raw(query, [content, title, userId]);
+      return dbRes.rows[0];
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
+
+  static async update(content, id) {
+    // dynamic queries are easier if you add more properties
+    try {
+      const query = `
+        UPDATE posts
+        SET content = ?
+        WHERE id = ?
+        returning *
+        `;
+      const updatedPost = await knex.raw(query, [content, id]);
+      return updatedPost ? new Posts(updatedPost) : null;
     } catch (err) {
       console.error(err);
       return null;

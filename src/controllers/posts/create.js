@@ -1,13 +1,13 @@
-const createUser = async (req, res) => {
-  const {
-    session,
-    db: { Posts },
-    body: { content, title },
-  } = req;
+const create = async (req, res) => {
+    const {
+        db: { Posts },
+        body: { content, title, userId },
+    } = req;
+    const postData = {  content, title, userId }
 
-  const posts = await Posts.create(content, title);
-
-  res.send(posts);
+    const posts = await Posts.create(postData);
+    
+    res.send(posts);
 };
 
-module.exports = createUser;
+module.exports = create;

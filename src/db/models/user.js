@@ -77,6 +77,7 @@ class User {
         .where({ id: this.id })
         .update({ username })
         .returning('*');
+        
       return updatedUser ? new User(updatedUser) : null;
     } catch (err) {
       console.error(err);

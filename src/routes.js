@@ -15,10 +15,10 @@ Router.get('/cookieCounter', (req, res) => {
   res.status(200).send({ count: session.viewCount });
 });
 
-// Create User
+// Create 
 Router.post('/users', userController.create);
 Router.post('/users/login', userController.login);
-// Router.post('/posts', postsController.create);
+Router.post('/posts', postsController.create);
 
 
 // Read
@@ -36,6 +36,7 @@ Router.get('/logged-in-secret', checkAuthentication, (req, res) => {
 
 // Update
 Router.patch('/users/:id', checkAuthentication, userController.update);
+Router.patch('/posts/:id', postsController.update)
 
 // Delete
 Router.delete('/users/logout', userController.logout);

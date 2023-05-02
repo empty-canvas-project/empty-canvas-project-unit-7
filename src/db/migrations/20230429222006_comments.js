@@ -6,8 +6,8 @@
 exports.up = function (knex) {
     return knex.schema.createTable("comments", (table) => {
       table.increments("id").primary();
-      table.integer("users_id").notNullable();
-      table.integer("posts_id").notNullable();
+      table.integer("user_id").notNullable();
+      table.integer("post_id").notNullable();
       table.string("comment_body").notNullable();
     });
   };

@@ -17,21 +17,20 @@ const options = {
 //   }
 // })
 
-const navButton = document.querySelector("#nav-button");
-const card = document.querySelector(".form-card");
+const navButton = document.querySelector(".nav-button");
+const card = document.querySelector(".Postcontent");
 // const title = document.querySelector('#title');
 
-navButton.addEventListener("click", () => {
+navButton.addEventListener("click", async () => {
   console.log("clicking");
   card.style.visibility = "visible";
-  card.style.height = "300px";
   // title.style.margin = "0.7em";
 });
 
-const searchButton = document.querySelector("#form-button");
+const searchButton = document.querySelector("#form-submit");
 const searchInput = document.querySelector("#search-input");
 const resultsContainer = document.querySelector("#results-container");
-// const resultsDiv = document.querySelector(".form-card");
+// const resultsDiv = document.querySelector(".Postcontent");
 
 searchButton.addEventListener("click", async (event) => {
   event.preventDefault();
@@ -52,8 +51,10 @@ searchButton.addEventListener("click", async (event) => {
       return data;
     })
     .catch((error) => console.error(error));
+  debugger;
   resultsContainer.innerHTML = ""; // clear the results div
   const arrOfSongs = data.data;
+  console.log(arrOfSongs);
   data.data.forEach((song) => {
     const songTitle = song.title;
     const songArtist = song.artist.name;

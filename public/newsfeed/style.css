@@ -164,3 +164,31 @@ button {
 .content-has-text-centered {
     justify-content:flex-end;
 }
+
+
+.form-card {
+    display: flex;
+    visibility: hidden;
+    /* display: none; */
+    width: 500px;
+    margin-bottom: 1.2em;
+    height: 0em;
+}
+
+.form-card-content {
+    margin: 2em;
+    display: flex;
+    background-color: #E9D8A6;
+}
+
+.form-content {
+    margin: 1em;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
+}
+
+.form-input {
+    justify-self: center;
+    align-items: center;
+    margin: 0.7em;
+}

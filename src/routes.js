@@ -21,7 +21,7 @@ Router.post('/users', userController.create);
 Router.post('/users/login', userController.login);
 Router.post('/posts', postsController.create);
 
-Router.post('/comments', commentController.create);
+Router.post('/comment', commentController.create);
 
 
 // Read

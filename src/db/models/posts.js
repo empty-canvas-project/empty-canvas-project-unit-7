@@ -1,17 +1,26 @@
 const knex = require("../knex");
 
 class Posts {
-  constructor({ id, user_id, content, title }) {
+  constructor({ id, user_id, content, artist, title, cover, preview, username }) {
     this.id = id;
     this.users_id = user_id;
     this.content = content;
+    this.artist = artist;
     this.title = title;
+    this.cover = cover; 
+    this.preview = preview; 
+    this.username = username;
   }
 
   static async list() {
     try {
-      const query = `SELECT * FROM posts`;
+      const query = `
+      SELECT posts.*, username 
+      FROM posts
+      INNER JOIN users
+      ON users.id = posts.user_id`;
       const { rows } = await knex.raw(query);
+      console.log(rows);
       return rows.map((posts) => new Posts(posts));
     } catch (err) {
       console.error(err);
@@ -23,11 +32,11 @@ class Posts {
     try {
       const query = "SELECT * FROM posts WHERE id = ?";
 
-      const { rows: [posts] } = await knex.raw(query, [id]);
-
+      const {
+        rows: [posts],
+      } = await knex.raw(query, [id]);
 
       return posts ? new Posts(posts) : null;
-
     } catch (err) {
       console.error(err);
       return null;
@@ -36,15 +45,15 @@ class Posts {
 
   static async create(postData) {
     try {
-      const { content, userId, title } = postData;
+      const { content, user_id, title, artist, cover } = postData;
+      
       const query = `
-      INSERT INTO posts (content, title, user_id)
-      VALUES (?, ?, ?) 
+      INSERT INTO posts ( user_id, content, artist, title, cover )
+      VALUES (?, ?, ?, ?, ?) 
       RETURNING *`;
 
-      const dbRes = await knex.raw(query, [content, title, userId]);
+      const dbRes = await knex.raw(query, [user_id, content, artist, title, cover]);
       return dbRes.rows[0];
-
     } catch (err) {
       console.error(err);
       return null;

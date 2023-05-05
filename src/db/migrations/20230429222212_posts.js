@@ -6,9 +6,12 @@
 exports.up = function (knex) {
     return knex.schema.createTable("posts", (table) => {
       table.increments("id").primary();
-      table.integer("user_id").notNullable();
-      table.string("content").notNullable();
-      table.string("title").notNullable();
+      table.integer("user_id").references('id').inTable('users')
+      table.string("content")
+      table.string("artist")
+      table.string("title")
+      table.string("cover")
+      table.string("preview")
       table.timestamps(true, true);
     });
   };

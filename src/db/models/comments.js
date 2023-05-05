@@ -38,14 +38,14 @@ class Comment {
       INSERT INTO comments (user_id, post_id, comment_body) 
       VALUES ( ?, ?, ? )
       RETURNING *`
-      const dbRes = await knes.raw(query, [user_id, post_id, comment_body])
+      const dbRes = await knex.raw(query, [user_id, post_id, comment_body])
       return dbRes.rows[0];
       
     } catch(err) {
-      console.log(error)
+      console.log(err)
      return null;
     }
-  }
+  } 
 }
 
 module.exports = Comment;

@@ -21,12 +21,12 @@ const navButton = document.querySelector("#nav-button");
 const card = document.querySelector(".form-card");
 // const title = document.querySelector('#title');
 
-navButton.addEventListener("click", () => {
-  console.log("clicking");
-  card.style.visibility = "visible";
-  card.style.height = "300px";
-  // title.style.margin = "0.7em";
-});
+// navButton.addEventListener("click", () => {
+//   console.log("clicking");
+//   card.style.visibility = "visible";
+//   card.style.height = "300px";
+//   // title.style.margin = "0.7em";
+// });
 
 const searchButton = document.querySelector("#form-button");
 const searchInput = document.querySelector("#search-input");
@@ -35,6 +35,7 @@ const resultsContainer = document.querySelector("#results-container");
 
 searchButton.addEventListener("click", async (event) => {
   event.preventDefault();
+  console.log('test!')
   const searchTerm = searchInput.value.trim();
   const url = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${searchTerm}`;
   console.log(url);
@@ -49,16 +50,32 @@ searchButton.addEventListener("click", async (event) => {
   const data = await fetch(url, options)
     .then((response) => response.json())
     .then((data) => {
+        console.log(data.data[0])
       return data;
     })
     .catch((error) => console.error(error));
-  resultsContainer.innerHTML = ""; // clear the results div
+  resultsContainer.innerHTML = "";
   const arrOfSongs = data.data;
-  data.data.forEach((song) => {
+//   data.data.forEach((song) => {
+//     const songTitle = song.title;
+//     const songArtist = song.artist.name;
+//     const songPreview = song.preview;
+//     const songImgUrl = song.album.cover_medium;
+
+for (let i = 0; i < 1; i++) {
+    const song = data.data[0];
     const songTitle = song.title;
     const songArtist = song.artist.name;
     const songPreview = song.preview;
     const songImgUrl = song.album.cover_medium;
+
+    console.log(data.data[0].title);
+
+    let title = data.data[0].title;
+    let artist = data.data[0].artist.name;
+    let preview = data.data[0].preview;
+    let imgurl = data.data[0].cover_medium;
+
 
     const songDiv = document.createElement("div");
     songDiv.classList.add("song");
@@ -68,5 +85,6 @@ searchButton.addEventListener("click", async (event) => {
         <audio controls src="${songPreview}"></audio>
       `;
     resultsContainer.appendChild(songDiv);
-  });
+//   });
+}
 });

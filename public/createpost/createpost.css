@@ -1,0 +1,62 @@
+body {
+    display: flex;
+    background-color: #E9D8A6;
+    flex-direction: column;
+}
+
+.text-input {
+    text-align: center;
+    margin-top: 6em;
+}
+
+#search-input{
+    width: 20em;
+    flex-direction: column;
+    margin: 1em;
+}
+
+#form-button {
+    background-color: #94D2BD;
+    width: fit-content;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    height:100vh;
+}
+
+
+textarea {
+    margin: 6em;
+    height: 20em;
+    width: 23em;
+    }
+
+header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color:aliceblue;
+    background-color: #0A9396;
+    align-items: center;
+    height: 6em;
+    border-style: groove;
+    border-color: black;
+    justify-content: space-between;
+    height: fit-content;
+    font-size:larger;
+}
+
+    body {
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+footer {
+    display: flex;
+    margin-top: 1.5em;
+    justify-content:center;
+
+}

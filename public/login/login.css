@@ -8,10 +8,6 @@ body {
   margin-top: 5em;
 }
 
-h2 {
-  justify-content: center;
-}
-
 nav {
   height: 2rem;
 }
@@ -89,4 +85,5 @@ main {
 h3 {
   text-align: center;
   margin-top: 0.2em;
+  font-size: xx-large;
 }

@@ -33,20 +33,20 @@ textarea {
     width: 23em;
     }
 
-    header {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        background-color: #E9D8A6;
-        align-items: center;
-        height: 6em;
-        border-style: groove;
-        border-color: black;
-        justify-content: space-between;
-        height: fit-content;
-        background-color: #0A9396;
-        font-size:larger;
-    }
+header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color:aliceblue;
+    background-color: #0A9396;
+    align-items: center;
+    height: 6em;
+    border-style: groove;
+    border-color: black;
+    justify-content: space-between;
+    height: fit-content;
+    font-size:larger;
+}
 
     body {
         display: flex;

@@ -69,6 +69,13 @@ for (let i = 0; i < 1; i++) {
     const songPreview = song.preview;
     const songImgUrl = song.album.cover_medium;
 
+    console.log(data.data[0].title);
+
+    let title = data.data[0].title;
+    let artist = data.data[0].artist.name;
+    let preview = data.data[0].preview;
+    let imgurl = data.data[0].cover_medium;
+
 
     const songDiv = document.createElement("div");
     songDiv.classList.add("song");

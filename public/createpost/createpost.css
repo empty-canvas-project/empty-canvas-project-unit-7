@@ -6,6 +6,7 @@ body {
 
 .text-input {
     text-align: center;
+    margin-top: 6em;
 }
 
 #search-input{
@@ -22,11 +23,40 @@ body {
 main {
     display: flex;
     justify-content: center;
+    height:100vh;
 }
 
 
 textarea {
     margin: 6em;
-    height: 12em;
-    width: 15em;
+    height: 20em;
+    width: 23em;
     }
+
+    header {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #E9D8A6;
+        align-items: center;
+        height: 6em;
+        border-style: groove;
+        border-color: black;
+        justify-content: space-between;
+        height: fit-content;
+        background-color: #0A9396;
+        font-size:larger;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+footer {
+    display: flex;
+    margin-top: 1.5em;
+    justify-content:center;
+
+}

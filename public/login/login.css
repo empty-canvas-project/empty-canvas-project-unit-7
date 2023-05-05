@@ -8,11 +8,6 @@ body {
   margin-top: 5em;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-}
-
 h2 {
   justify-content: center;
 }

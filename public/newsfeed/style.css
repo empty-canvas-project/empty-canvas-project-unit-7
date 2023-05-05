@@ -182,13 +182,20 @@ button {
 }
 
 .form-content {
-    margin: 1em;
+    display: flex;
+    justify-content: center;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: large;
+}
+
+#text-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-input {
-    justify-self: center;
+    justify-content: center;
     align-items: center;
     margin: 0.7em;
 }

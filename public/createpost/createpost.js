@@ -54,13 +54,21 @@ searchButton.addEventListener("click", async (event) => {
       return data;
     })
     .catch((error) => console.error(error));
-  resultsContainer.innerHTML = ""; // clear the results div
+  resultsContainer.innerHTML = "";
   const arrOfSongs = data.data;
-  data.data.forEach((song) => {
+//   data.data.forEach((song) => {
+//     const songTitle = song.title;
+//     const songArtist = song.artist.name;
+//     const songPreview = song.preview;
+//     const songImgUrl = song.album.cover_medium;
+
+for (let i = 0; i < 1; i++) {
+    const song = data.data[0];
     const songTitle = song.title;
     const songArtist = song.artist.name;
     const songPreview = song.preview;
     const songImgUrl = song.album.cover_medium;
+
 
     const songDiv = document.createElement("div");
     songDiv.classList.add("song");
@@ -70,5 +78,6 @@ searchButton.addEventListener("click", async (event) => {
         <audio controls src="${songPreview}"></audio>
       `;
     resultsContainer.appendChild(songDiv);
-  });
+//   });
+}
 });

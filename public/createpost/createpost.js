@@ -90,3 +90,6 @@ for (let i = 0; i < 1; i++) {
 });
 
 
+document.getElementById("post-button").addEventListener("click", function() {
+  window.location.href = "/public/newsfeed/index.html";
+});

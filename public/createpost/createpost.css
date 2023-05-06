@@ -68,3 +68,10 @@ body {
     margin-bottom: 2em;
 }
 
+
+#post-button {
+    background-color: #94D2BD;
+    width: fit-content;
+    margin-top: 2em;
+    margin-bottom: 3em;
+}

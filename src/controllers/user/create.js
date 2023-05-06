@@ -6,8 +6,8 @@ const createUser = async (req, res) => {
   } = req;
 
   const user = await User.create(username, password);
+  console.log(user)
   session.userId = user.id;
-  console.log(session.userId)
 
   res.send(user);
 };

@@ -1,4 +1,5 @@
 const express = require('express');
+// const cors = require('cors');
 const path = require('path');
 // const handleSessions = require('./middleware/handle-sessions');
 const handleCookieSessions = require('./middleware/handle-cookie-sessions');
@@ -11,7 +12,7 @@ app.use(handleCookieSessions);
 app.use(logRoutes);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'public')));
-
+ 
 app.use('/api', routes);
 
 module.exports = app;

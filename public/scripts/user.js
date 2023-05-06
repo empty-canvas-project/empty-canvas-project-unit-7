@@ -36,7 +36,6 @@ const main = async () => {
 
   updateUsernameForm.dataset.userId = user.id;
 
-  setNav(!!user);
   renderUsername(user.username);
 };
 

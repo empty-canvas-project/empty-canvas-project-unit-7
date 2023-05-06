@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Profile</title>
   <link rel="stylesheet" href="profile.css">
+  <script src="profile.js" defer></script>
   <title>Document</title>
 </head>
 <body>
@@ -20,8 +21,11 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <button class="nav-button">Newsfeed</button>
-      <button class="nav-button">New Post</button>
+      <!-- <button class="nav-button">Newsfeed</button>
+      <button class="nav-button">New Post</button> -->
+      <button class="nav-button" onclick="openNewsfeed()">Newsfeed</button>
+<button class="nav-button" onclick="openCreatePost()">New Post</button>
+
     </div>
   </div>
 </nav>
@@ -36,33 +40,24 @@
   <div class="card">
       <div class="card-content">
         <div class="media">
-          <div class="media-left">
             <figure class="image is-48x48">
-              <img src="https://www.theglobeandmail.com/resizer/-2nub-HIMMjzvLyBK6qWJfgztyg=/600x0/filters:quality(80):format(jpeg)/arc-anglerfish-tgam-prod-tgam.s3.amazonaws.com/public/3YV2PTJAVFGCVJK5IC6RJYY6EA" alt="Placeholder image">
+            <img src="https://www.theglobeandmail.com/resizer/-2nub-HIMMjzvLyBK6qWJfgztyg=/600x0/filters:quality(80):format(jpeg)/arc-anglerfish-tgam-prod-tgam.s3.amazonaws.com/public/3YV2PTJAVFGCVJK5IC6RJYY6EA" alt="Placeholder image">
             </figure>
-          </div>
-        <div class="media-content">
-            <p class="title is-4">John Smith</p>
-            <p class="subtitle is-6">@johnsmith</p>
+           <div class="status-content">
+            <a>play button</a>
+            <input class="input" type="text" placeholder="Text input">
+            <a>@username</a>
+            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
           </div>
         </div>
       </div>
 
-      <div class="content"> This is where the string post would go. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        <br>
-        <br>
-        <a>@username</a>
-          <br>
-          <br>
-          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-        <div class="field">
-          <label class="label">Leave a comment</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Text input">
+
+      <div class="content">
+          <div id="comment-section">
+            <a>just a div for comments</a>
           </div>
-        </div>
       </div>
-  </div>
 </main>
 
 <footer class="footer">

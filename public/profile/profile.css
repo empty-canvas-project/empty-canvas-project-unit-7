@@ -72,6 +72,7 @@ main {
     display: flex;
     justify-content: center;
   }
+
   .media-left {
     display: flex;
     justify-content: center;
@@ -101,21 +102,57 @@ img {
 .media-content, .media {
 text-align: center;
 background-color: #EE9B00;
+justify-content: center;
+padding: 2em;
+}
+time, .input {
+    margin: 0.4em;
+}
+.status-content {
+    display: flex;
+    flex-direction: column;
+    margin: 0em;
 }
 
-.media-left {
-    margin: 1.5em;
+
+img {
+    height: 20em;
+    width: 20em;
+    justify-content: flex-start;
 }
 
 .content {
+    text-align: center;
+    width: 400px;
+    background-color: #E9D8A6;
+    padding: 2em;
+    }
+    
+    textarea {
+        width: 350px;
+        align-items: center;
+    }
+
+/* 
+.media-left {
+    margin: 1.5em;
+} */
+
+
+.control {
+    justify-content: center;
+    padding: 2em;
+}
+
+/* .content {
 text-align: center;
 width: 400px;
 background-color: #E9D8A6;
 padding: 2em;
-}
+} */
 
 
-.field {
+/* .field {
     justify-content: space-between;
     align-items: center;
     padding: 3em;
@@ -128,20 +165,27 @@ padding: 2em;
     border-radius: 1.4em;
     font-size: medium;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+} */
 
 .control {
     justify-content: center;
     padding: 2em;
 }
 
+.form-card {
+    display: flex;
+    visibility: hidden;
+    display: none;
+    width: 500px;
+    margin-bottom: 1.2em;
+    height: 0em;
+} 
+
 
 .footer {
-    margin-top: 5em;
-    margin-bottom: 1.5em;
     display: flex;
+    margin-top: 2em;
     justify-content: space-around;
-    font-size: large;
 }
 
 .content-has-text-centered {

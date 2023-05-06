@@ -75,3 +75,17 @@ searchButton.addEventListener("click", async (event) => {
 document.getElementById("nav-button").addEventListener("click", function() {
   window.location.href = "http://127.0.0.1:5500/public/createpost/createpost.html";
 });
+
+function openCard() {
+  var card = document.getElementById("card");
+  if (card.style.display === "none") {
+    card.style.display = "block";
+  } else {
+    card.style.display = "none";
+  }
+}
+
+function postComment() {
+  var comment = document.getElementById("commentBox").value;
+  console.log(comment); // Do something with the comment
+}

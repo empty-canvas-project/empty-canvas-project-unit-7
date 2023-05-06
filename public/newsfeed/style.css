@@ -104,10 +104,15 @@ img {
 .media-content, .media {
 text-align: center;
 background-color: #EE9B00;
+justify-content: center;
+padding: 2em;
 }
 
-.media-left {
-    margin: 1.5em;
+
+img {
+    height: 20em;
+    width: 20em;
+    justify-content: flex-start;
 }
 
 .content {
@@ -117,20 +122,11 @@ background-color: #E9D8A6;
 padding: 2em;
 }
 
-.field {
-    justify-content: space-between;
+textarea {
+    width: 350px;
     align-items: center;
-    padding: 3em;
 }
 
-.label {
-    background-color: #0A9396;
-    opacity: 0.8;
-    padding: 1em;
-    border-radius: 1.4em;
-    font-size: medium;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
 
 .control {
     justify-content: center;
@@ -138,10 +134,10 @@ padding: 2em;
 }
 
 
-#button-section {
+/* #button-section {
     display: flex;
     justify-content: center;
-}
+} */
 
 button {
     background-color: #94D2BD;
@@ -157,7 +153,7 @@ button {
 
 .footer {
     display: flex;
-    margin-top: 1.5em;
+    margin-top: 2em;
     justify-content: space-around;
 }
 
@@ -169,19 +165,19 @@ button {
 .form-card {
     display: flex;
     visibility: hidden;
-    /* display: none; */
+    display: none;
     width: 500px;
     margin-bottom: 1.2em;
     height: 0em;
-}
+} 
 
-.form-card-content {
+/* .form-card-content {
     margin: 2em;
     display: flex;
     background-color: #E9D8A6;
 }
 
-.form-content {
+/* .form-content {
     display: flex;
     justify-content: center;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -198,4 +194,5 @@ button {
     justify-content: center;
     align-items: center;
     margin: 0.7em;
-}
+} */
+

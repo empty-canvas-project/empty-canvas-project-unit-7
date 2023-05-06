@@ -108,6 +108,15 @@ justify-content: center;
 padding: 2em;
 }
 
+time, .input {
+    margin: 0.4em;
+}
+
+.status-content {
+    display: flex;
+    flex-direction: column;
+    margin: 0em;
+}
 
 img {
     height: 20em;
@@ -171,28 +180,4 @@ button {
     height: 0em;
 } 
 
-/* .form-card-content {
-    margin: 2em;
-    display: flex;
-    background-color: #E9D8A6;
-}
-
-/* .form-content {
-    display: flex;
-    justify-content: center;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-#text-input{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.form-input {
-    justify-content: center;
-    align-items: center;
-    margin: 0.7em;
-} */
 

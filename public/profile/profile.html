@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Profile</title>
   <link rel="stylesheet" href="profile.css">
+  <script src="profile.js" defer></script>
   <title>Document</title>
 </head>
 <body>
@@ -20,8 +21,11 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <button class="nav-button">Newsfeed</button>
-      <button class="nav-button">New Post</button>
+      <!-- <button class="nav-button">Newsfeed</button>
+      <button class="nav-button">New Post</button> -->
+      <button class="nav-button" onclick="openNewsfeed()">Newsfeed</button>
+<button class="nav-button" onclick="openCreatePost()">New Post</button>
+
     </div>
   </div>
 </nav>

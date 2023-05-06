@@ -28,9 +28,27 @@ class Posts {
     }
   }
 
+  static async singleUserList(id) {
+    try {
+      const query = `
+      SELECT posts.*, username 
+      FROM posts
+      JOIN users
+      ON users.id = posts.user_id
+      WHERE users.id = ?
+      `;
+      const { rows } = await knex.raw(query,[id]);
+      console.log(rows);
+      return rows.map((posts) => new Posts(posts));
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
+
   static async find(id) {
     try {
-      const query = "SELECT * FROM posts WHERE id = ?";
+      const query = `SELECT * FROM posts WHERE id = ?`;
 
       const {
         rows: [posts],

@@ -4,6 +4,7 @@ const destroy = require('./destroy');
 const destroyAll = require('./destroyAll');
 const create = require('./create');
 const update = require('./update');
+const profile = require('./profile')
 
 
 module.exports = {
@@ -12,5 +13,6 @@ module.exports = {
     destroy,
     destroyAll,
     create,
-    update
+    update,
+    profile
 }

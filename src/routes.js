@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const userController = require('./controllers/user');
 const postsController = require('./controllers/posts');
@@ -30,6 +32,7 @@ Router.get('/users/:id', userController.show);
 Router.get('/me', userController.showMe);
 
 Router.get('/posts', postsController.list);
+Router.get('/profile/:id', postsController.profile); // list all posts from one user postsController.userPosts
 Router.get('/posts/:id', postsController.show);
 
 Router.get('/comment', commentController.list);

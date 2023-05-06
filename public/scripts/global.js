@@ -29,7 +29,7 @@ const signupAndLoginHandler = async (url, form) => {
     form.reset();
     return alert("Something went wrong");
   }
-  window.location.assign("/test.html");
+  window.location.assign("/profile-test.html");
   // window.location.assign('/user.html');
 };
 

@@ -3,7 +3,7 @@ const showUser = async (req, res) => {
     db: { Posts },
     params: { id },
   } = req;
-  console.log(req.db)
+  console.log(req.params)
 
   const posts = await Posts.find(id);
   if (!posts) return res.sendStatus(404);

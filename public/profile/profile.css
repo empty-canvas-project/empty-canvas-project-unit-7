@@ -1,52 +1,53 @@
+
+* {
+margin: 0;
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif';
+}
+
 body {
-    display: flex;
-    flex-direction: column;
-    background-color: #005F73;
-    font-family: Arial, Helvetica, sans-serif;
+display: flex;
+margin: 0;
+align-content: center;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+background-color: #161a1d;
+color: azure;
+width: 100%;
 }
 
 #logo {
-    height: 5.5em;
-    width: 5.5em;
+margin-right: 2%;
+margin-left: 1%;
 }
+
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-style: groove;
+    border-color: #A4161A;
+    margin-top: 2px;
+}
+
 
 .navbar {
     display: flex;
-    justify-content: space-between;
-    background-color:#E9D8A6;
+    justify-content: space-around;
     align-items: center;
     height: 6em;
     border-style: groove;
-    border-color: black;
 }
+
+#navbarNavDropdown {
+    justify-content: space-between;
+    margin: 2em;
+}
+
 
 .navbar-brand {
-    display: flex;
-    justify-content: space-between;
-    background-color: #0A9396;
     align-items: center;
     margin: 0.2em;
-    border-style: groove;
-    border-color: black;
-}
-
-.navbar-menu {
-    margin-top: 2em;
-    margin-bottom: 2em;
-    margin-left: 3em;
-    margin-right: 2em;
-}
-
-.nav-button {
-    background-color: #94D2BD;
-    height: 3em;
-    width: 100px;
-    color: aliceblue;
-    opacity: 0.8;
-    font-weight: 400;
-    color: black;
-    margin-left: 1em;
-    margin-right: 1em;
 }
 
 
@@ -56,27 +57,27 @@ body {
     color:aliceblue;
     flex-direction: column;
     text-align: center;
-    font-size:x-large;
+    font-size:large;
     border-style: groove;
-    border-color: black;
-    margin: 0.7em;
-    background-color:#0A9396;
+    border-color: #A4161A;
+    margin: 2em;
+    background-color: #161A1D;
 }
 
-h2, h4 {
+h4 {
     padding: 0em;
     margin: 0.5em;
 }
 
+
 main {
     display: flex;
     justify-content: center;
-  }
+}
 
-  .media-left {
+.media-left {
     display: flex;
     justify-content: center;
-    background-color: #EE9B00;
 }
 
 img {
@@ -86,12 +87,10 @@ img {
 
 .content {
     flex-direction: column;
-    background-color: #EE9B00;
 }
 
 .card {
-    display: flex;
-    justify-content: center;
+    flex-direction: row;
 }
 
 .card-content {
@@ -101,19 +100,20 @@ img {
 
 .media-content, .media {
 text-align: center;
-background-color: #EE9B00;
+background-color: #A4161A;
 justify-content: center;
 padding: 2em;
 }
+
 time, .input {
     margin: 0.4em;
 }
+
 .status-content {
     display: flex;
     flex-direction: column;
     margin: 0em;
 }
-
 
 img {
     height: 20em;
@@ -122,72 +122,50 @@ img {
 }
 
 .content {
-    text-align: center;
-    width: 400px;
-    background-color: #E9D8A6;
-    padding: 2em;
-    }
-    
-    textarea {
-        width: 350px;
-        align-items: center;
-    }
-
-/* 
-.media-left {
-    margin: 1.5em;
-} */
-
-
-.control {
-    justify-content: center;
-    padding: 2em;
-}
-
-/* .content {
 text-align: center;
 width: 400px;
-background-color: #E9D8A6;
+background-color: #D3D3D3;
 padding: 2em;
-} */
-
-
-/* .field {
-    justify-content: space-between;
-    align-items: center;
-    padding: 3em;
 }
 
-.label {
-    background-color: #0A9396;
-    opacity: 0.8;
-    padding: 1em;
-    border-radius: 1.4em;
-    font-size: medium;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-} */
+textarea {
+    width: 350px;
+    align-items: center;
+}
+
 
 .control {
     justify-content: center;
     padding: 2em;
 }
 
-.form-card {
-    display: flex;
-    visibility: hidden;
-    display: none;
-    width: 500px;
-    margin-bottom: 1.2em;
-    height: 0em;
-} 
+
+button {
+    background-color: #A4161A;
+    height: 3em;
+    margin: 4em;
+    width: 200px;
+    color: aliceblue;
+    font-weight: 400;
+    color: black;
+}
 
 
 .footer {
     display: flex;
-    margin-top: 2em;
+    margin-top: 4em;
     justify-content: space-around;
+    color:#BA181B;
 }
 
 .content-has-text-centered {
     justify-content:flex-end;
+}
+
+a {
+    color: #BA181B;
+}
+
+strong {
+    color: aliceblue;
 }

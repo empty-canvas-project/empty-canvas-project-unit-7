@@ -162,15 +162,6 @@ button {
 }
 
 
-.form-card {
-    display: flex;
-    visibility: hidden;
-    display: none;
-    width: 500px;
-    margin-bottom: 1.2em;
-    height: 0em;
-} 
-
 a {
     color: #BA181B;
 }

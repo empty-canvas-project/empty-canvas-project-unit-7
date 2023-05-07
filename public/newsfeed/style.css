@@ -1,6 +1,6 @@
 * {
 margin: 0;
-font-family: sans-serif;
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif';
 }
 
 body {
@@ -44,20 +44,11 @@ nav {
 }
 
 
-
-
 .navbar-brand {
     align-items: center;
     margin: 0.2em;
 }
 
-
-/* 0B090A
-161A1D
-660708
-A4161A
-BA181B    red
-D3D3D3    grey */
 
 #title {
     display: flex;

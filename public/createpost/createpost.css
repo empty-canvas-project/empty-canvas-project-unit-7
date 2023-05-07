@@ -53,12 +53,12 @@ D3D3D3    grey */
 
 
 #uploadContent {
-    margin: 6em;
-}
-
-#form {
     display: flex;
-    justify-content: center;
+    justify-content:center;
+    align-items: center;
+    margin: 6em;
+    flex-direction: column;
+    width: max-content;
 }
 
 .card {
@@ -73,6 +73,11 @@ label {
     margin: 0.5em;
 }
 
+#postButton {
+    align-items: center;
+    justify-content: center;
+    width: 5em;
+}
 
 
 

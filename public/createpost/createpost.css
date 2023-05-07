@@ -13,7 +13,6 @@ flex-direction: column;
 background-color: #161a1d;
 color: azure;
 width: 100%;
-height: 100%;
 }
 
 #logo {
@@ -56,7 +55,7 @@ D3D3D3    grey */
     display: flex;
     justify-content:center;
     align-items: center;
-    margin: 6em;
+    margin: 10em;
     flex-direction: column;
     width: max-content;
 }
@@ -77,14 +76,29 @@ label {
     align-items: center;
     justify-content: center;
     width: 5em;
+    color: #A4161A;
 }
-
-
-
 
 
 .footer {
     display: flex;
     margin-top: 2em;
     justify-content: space-around;
+    margin-top: 6em;
+    color:#BA181B;
 }
+
+.content-has-text-centered {
+    justify-content:flex-end;
+}
+
+strong {
+    color: aliceblue;
+}
+
+
+a {
+    color: #BA181B;
+}
+
+

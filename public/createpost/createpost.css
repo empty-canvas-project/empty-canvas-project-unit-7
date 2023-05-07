@@ -44,6 +44,11 @@ nav {
     margin: 2em;
 }
 
+.navbar-brand {
+    align-items: center;
+    margin: 0.2em;
+}
+
 main {
     min-height: calc(100% - [footer-height]);
 }

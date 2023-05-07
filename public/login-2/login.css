@@ -1,89 +1,93 @@
-body {
-  font-family:Arial, Helvetica, sans-serif;
-  display: flex;
-  justify-content: center;
-  border-color: black;
-  border-style: groove;
-  margin: 3em;
-  margin-top: 5em;
-}
-
-nav {
-  height: 2rem;
-}
-
-nav ul {
-  list-style: none;
+* {
   margin: 0;
-  padding: 0;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif';
+  }
+  
+  body {
   display: flex;
-  gap: 1rem;
-  color: black;
-}
-
-nav ul li:first-child {
-  flex-grow: 1;
-}
-
-#secret-container {
-  text-align: center;
-  border: black 1px dashed;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-}
-
-#log-in {
-  justify-content: center;
-  background-color: #94D2BD;
-  border-radius: 1.5em;
-  text-align: center;
-  border-color: black;
-  border-style: groove;
-  padding: 0.3em;
-  margin: 1em;
-}
-
-/* label {
-  width: 300px;
-  height: 100px;
-} */
-
-#signup {
-  display: flex;
-  justify-content: center;
-}
-
-.button {
-  width: 6em;
-  background-color: #94D2BD;
-  border-radius: 0.3em;
-  text-align: center;
-  border-color: black;
-  border-style: groove;
-  padding: 0.5em;
-  margin: 1em;
-  margin-bottom: 2em;
-}
-
-
-#create-form {
-  display: flex;
+  margin: 0;
+  align-content: center;
   align-items: center;
-  margin: 2em;
-  margin-top: 1.5em;
-  background-color: #94D2BD;
-  padding: 1em;
-  border-radius: 0.3em;
-  border-style: groove;
-  border-color: black;
-  height: 2.2em;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #161a1d;
+  color: azure;
+  width: 100%;
+  }
+  
+  #logo {
+  margin-right: 2%;
+  margin-left: 1%;
+  }
+  
+  nav {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      border-style: groove;
+      border-color: #A4161A;
+      margin-top: 2px;
+  }
+  
+  
+  .navbar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 6em;
+      border-style: groove;
+  }
+  
+  #navbarNavDropdown {
+      justify-content: space-between;
+      margin: 2em;
+  }
+  
+  
+  .navbar-brand {
+      align-items: center;
+      margin: 0.2em;
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 6em;
+  }
+
+  label {
+    margin: 0.8em;
+  }
+
+  button {
+    margin: 1em;
+    border-color:#A4161A;
+  }
+
+  input {
+    border-style: groove;
+    border-color:#A4161A;
+  }
+
+
+.footer {
+  display: flex;
+  margin-top: 4em;
+  justify-content: space-around;
+  color:#BA181B;
 }
 
-h3 {
-  text-align: center;
-  margin-top: 0.2em;
-  font-size: xx-large;
+.content-has-text-centered {
+  justify-content:flex-end;
+}
+
+
+a {
+  color: #BA181B;
+}
+
+strong {
+  color: aliceblue;
 }

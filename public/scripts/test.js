@@ -20,7 +20,7 @@ const main = async () => {
     element.innerHTML = `
     <div class="card">
       <div class="listeningToo">
-        <h2>${item.username} is listening too</h2>
+        <h2>${item.username} is listening to</h2>
       </div>
       <div class="music">
         <img src="${item.cover}" alt="image">

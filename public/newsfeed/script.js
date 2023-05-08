@@ -7,15 +7,7 @@ const options = {
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };
-// document.addEventListener("DOMContentLoaded", async ()=>{
-//   try {
-//     const response = await fetch(url, options);
-//     const result = await response.json();
-//     console.log(result);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// })
+
 
 const navButton = document.querySelector("#nav-button");
 const card = document.querySelector(".form-card");
@@ -76,16 +68,16 @@ document.getElementById("nav-button").addEventListener("click", function() {
   window.location.href = "http://127.0.0.1:5500/public/createpost/createpost.html";
 });
 
-function openCard() {
-  var card = document.getElementById("card");
-  if (card.style.display === "none") {
-    card.style.display = "block";
-  } else {
-    card.style.display = "none";
-  }
-}
+// function openCard() {
+//   var card = document.getElementById("card");
+//   if (card.style.display === "none") {
+//     card.style.display = "block";
+//   } else {
+//     card.style.display = "none";
+//   }
+// }
 
-function postComment() {
-  var comment = document.getElementById("commentBox").value;
-  console.log(comment); // Do something with the comment
-}
+// function postComment() {
+//   var comment = document.getElementById("commentBox").value;
+//   console.log(comment); // Do something with the comment
+// }

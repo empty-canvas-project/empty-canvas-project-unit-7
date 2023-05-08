@@ -41,5 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         "/api/posts",
         getFetchOptions(body, "POST")
       );
+      return window.location.assign('/test.html')
     });
+    
 });

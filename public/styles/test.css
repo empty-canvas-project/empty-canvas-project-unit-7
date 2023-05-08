@@ -3,6 +3,15 @@
   font-family: sans-serif;
 }
 
+h1 {
+  margin-top: 1%;
+}
+
+h3 {
+  font-size: 3.25ch;
+  font-weight: bolder;
+}
+
 body {
   display: flex;
   align-content: center;
@@ -20,41 +29,103 @@ nav {
 }
 
 img {
-  width: 65%;
+  width: 35vh;
+  border-radius: 4%;
+  margin-right: 6vh;
 }
 
+audio {
+  filter: sepia(0) saturate(5) grayscale(1) contrast(1) invert(1);
+}
+
+#logo {
+  margin-right: 1vw;
+  margin-left: 0.5vw;
+}
 .card {
   border: 2px;
   border-style: solid;
   border-color: #e5383b;
-  margin-top: 50%;
-  margin-bottom: 50%;
+  border-radius: 3%;
+  margin-top: 4vh;
+  width: 50vw;
   background-color: #212529;
-  height: 75vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 4vh;
+  padding-bottom: 6vh;
 }
 
 .listeningToo {
-  margin-bottom: 7%;
-  margin-top: -30%;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50vw;
+  height: 15vh;
+  padding-top: 0vh;
 }
 
 .music {
   display: flex;
+  height: 42vh;
+  justify-content: space-evenly;
+  padding-bottom: 0vh;
+  flex-direction: column;
 }
 
 .musicText {
+  font-size: 2.1ch;
+  font-weight: bolder;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   align-content: center;
   text-align: center;
+  height: 35vh;
+  padding-bottom: 1vh;
+}
+
+.allComments {
+  padding-top: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #202020;
+  height: 15vh;
+  width: 50vw;
+  border-radius: 10px;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+/* Override the default modal styles */
+.modal-content {
+  color: #e1e1e1;
+  background-color: #202020; /* Set the background color to gray */
+  border-radius: 5%; /* Remove the rounded corners */
+}
+
+/* Override the default backdrop styles */
+.modal-backdrop {
+  background-color: #212529; /* Set the background color to a darker gray */
+}
+
+#message-text {
+  color: #e1e1e1;
+  background-color: #212529;
+}
+
+#apiContents {
+  display: flex;
+  height: 40vh;
 }
 
 .caption {
-  padding-top: 15%;
+  margin-top: 5vh;
 }

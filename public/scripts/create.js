@@ -15,6 +15,6 @@ const main = async () => {
       signupAndLoginHandler('/api/users', event.target);
     });
 };
-
+  
 main();
  

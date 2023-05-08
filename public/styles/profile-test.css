@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #161a1d;
+  color: azure;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+img {
+  width: 35vh;
+  border-radius: 4%;
+  margin-right: 6vh;
+}
+
+.card {
+  border: 2px;
+  border-style: solid;
+  border-color: #e5383b;
+  margin-top: 5vh;
+  width: 50vw;
+  background-color: #212529;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.listeningToo {
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50vw;
+  height: 20vh;
+  padding-top: 5vh;
+}
+
+.music {
+  display: flex;
+  height: 35vh;
+  justify-content: space-evenly;
+  margin-bottom: 10vh;
+}
+
+.musicText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.caption {
+  padding-top: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #202020;
+  height: 15vh;
+  width: 45vw;
+  border-radius: 10px;
+  margin-bottom: 2%;
+  text-align: center;
+}

@@ -11,8 +11,8 @@ body {
   justify-content: center;
   flex-direction: column;
   background-color: #161a1d;
-  color: azure;
-  width: 100%;
+  color: #f0ffff;
+  width: 100vw;
 }
 
 #logo {
@@ -27,16 +27,17 @@ nav {
 }
 
 .card {
-  border: 2px;
+  order: 2px;
   border-style: solid;
   border-color: #e5383b;
-  margin-top: 50%;
-  margin-bottom: 50%;
+  margin-top: 10%;
+  margin-bottom: 0%;
   background-color: #212529;
   height: 75vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 70vw;
   justify-content: center;
 }
 
@@ -58,6 +59,35 @@ nav {
   text-align: center;
 }
 
-.caption {
-  padding-top: 15%;
+#music {
+  width: 35vw;
+  background-color: #161a1d;
+  border-style: none;
+  color: white;
+  vertical-align: top;
+  height: 5vh;
+}
+
+#caption {
+  padding-bottom: 15%;
+  margin-bottom: 5%;
+  margin-top: 0%;
+  width: 35vw;
+  background-color: #161a1d;
+  border-style: none;
+  color: white;
+  vertical-align: top;
+}
+
+.submit {
+  color: #f0ffff;
+  background-color: #e5383b;
+  border-style: none;
+  margin-top: 1%;
+}
+
+.submit:hover {
+  color: #b1a7a6;
+  background-color: #660708;
+  border-style: none;
 }

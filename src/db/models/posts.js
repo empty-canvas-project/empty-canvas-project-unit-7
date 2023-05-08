@@ -63,14 +63,14 @@ class Posts {
 
   static async create(postData) {
     try {
-      const { content, user_id, title, artist, cover } = postData;
+      const { content, user_id, title, artist, cover, preview } = postData;
       
       const query = `
-      INSERT INTO posts ( user_id, content, artist, title, cover )
-      VALUES (?, ?, ?, ?, ?) 
+      INSERT INTO posts ( user_id, content, artist, title, cover, preview )
+      VALUES (?, ?, ?, ?, ?, ?) 
       RETURNING *`;
 
-      const dbRes = await knex.raw(query, [user_id, content, artist, title, cover]);
+      const dbRes = await knex.raw(query, [user_id, content, artist, title, cover, preview]);
       return dbRes.rows[0];
     } catch (err) {
       console.error(err);

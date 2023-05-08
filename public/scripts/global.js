@@ -29,13 +29,15 @@ const signupAndLoginHandler = async (url, form) => {
     form.reset();
     return alert("Something went wrong");
   }
-  window.location.assign("/profile-test.html");
+  window.location.assign("/test.html");
   // window.location.assign('/user.html');
 };
 
 // READ USER
 const fetchLoggedInUser = async () => {
-  const [response, _err] = await handleFetch("/api/me", { credentials: "include" });
+  const [response, _err] = await handleFetch("/api/me", {
+    credentials: "include",
+  });
   return response;
 };
 

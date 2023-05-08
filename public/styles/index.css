@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  font-family: sans-serif;
+  font-family: emoji;
 }
 
 body {
@@ -13,6 +13,7 @@ body {
   background-color: #161a1d;
   color: azure;
   width: 100%;
+  /* font-family: 'Times New Roman', Times, serif; */
 }
 
 #logo {

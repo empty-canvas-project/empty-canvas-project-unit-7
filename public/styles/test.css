@@ -42,6 +42,7 @@ audio {
   margin-right: 1vw;
   margin-left: 0.5vw;
 }
+
 .card {
   border: 2px;
   border-style: solid;
@@ -128,4 +129,33 @@ audio {
 
 .caption {
   margin-top: 5vh;
+}
+
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.footer {
+  display: flex;
+  margin-top: 4em;
+  justify-content: space-around;
+  color:#BA181B;
+}
+
+.content-has-text-centered {
+  justify-content:flex-end;
+}
+
+
+a {
+  color: #BA181B;
+}
+
+strong {
+  color: aliceblue;
 }

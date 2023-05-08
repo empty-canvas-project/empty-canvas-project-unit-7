@@ -18,7 +18,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <i id="logo" class="fa-solid fa-compact-disc fa-spin fa-spin-reverse fa-lg style="color: #ffffff;"></i>
+        <i id="logo" class="fa-solid fa-compact-disc fa-spin fa-spin-reverse fa-lg" style="color: #ffffff;"></i>
         <a class="navbar-brand" href="./test.html">Jam Session</a>
         <button
           class="navbar-toggler"
@@ -34,7 +34,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./upload.html">What are you listening too?</a>
+              <a class="nav-link active" aria-current="page" href="./upload.html">What are you listening to?</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./profile.html">Profile</a>
@@ -48,12 +48,22 @@
     </nav>
     <form id="uploadContent">
       <div class="card">
-          <label for="Music">I am jamming out too: </label><br />
+          <label for="Music">I am jamming out to: </label><br />
           <input type="search" id="music" name="music" /><br />
-          <label for="caption">Thoughts</label><br />
+          <label for="caption">Thoughts:</label><br />
           <input type="text" id="caption" name="caption" />
           <input class="submit" type="submit" value="Submit" />
       </div>
     </form>
+
+
+    <footer class="footer">
+      <div class="content-has-text-centered">
+        <p>
+          <strong>Jam Session</strong> by Mathew and Magdalena</a>, Software Engineering fellows at
+          <a href="https://www.marcylabschool.org/">The Marcy Lab School</a>. 
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
